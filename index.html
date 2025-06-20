@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>حسن حيدر | مدونة شخصية</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Cairo", sans-serif;
+    }
+    body {
+      background-color: #0f0f0f;
+      color: #f0f0f0;
+      line-height: 1.6;
+      transition: direction 0.3s;
+    }
+    header {
+      background: linear-gradient(to left, #000000, #1a1a1a);
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    header img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00ffe0;
+    }
+    header h1 {
+      margin-top: 1rem;
+      font-size: 2rem;
+      color: #00ffe0;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 15, 15, 0.6);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem 2rem;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 255, 224, 0.1);
+    }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      position: relative;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #00ffe0;
+      transition: 0.3s ease;
+      transform: translateX(-50%);
+    }
+    nav a:hover {
+      color: #00ffe0;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #00ffe0;
+    }
+    ul {
+      list-style: disc;
+      padding-inline-start: 1.5rem;
+    }
+    .languages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .language-card {
+      text-align: center;
+      background-color: #1a1a1a;
+      padding: 1rem;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+    .language-card:hover {
+      transform: scale(1.05);
+    }
+    .language-card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.5rem;
+    }
+    .language-card p {
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .social-icons {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .social-icons a {
+      margin: 0 0.5rem;
+      color: #00ffe0;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+    .lang-toggle {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      background: #00ffe0;
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <button class="lang-toggle" onclick="toggleLanguage()">English</button>
+
+  <header>
+    <img src="hasan.jpg" alt="صورة حسن" />
+    <h1 id="header-name">حسن حيدر</h1>
+    <p id="header-desc">طالب ومدرب أمن سيبراني | مكافح للابتزاز | مصمم مواقع محترف</p>
+  </header>
+
+  <nav>
+    <a href="#about" id="nav-about"><i class="fas fa-user"></i> <span>من أنا</span></a>
+    <a href="#services" id="nav-services"><i class="fas fa-briefcase"></i> <span>خدماتي</span></a>
+    <a href="#languages" id="nav-languages"><i class="fas fa-code"></i> <span>لغات البرمجة</span></a>
+    <a href="#tools" id="nav-tools"><i class="fas fa-shield-alt"></i> <span>أدوات الأمن</span></a>
+    <a href="#contact" id="nav-contact"><i class="fas fa-envelope"></i> <span>تواصل</span></a>
+  </nav>
+
+  <section id="about">
+    <h2 class="section-title" id="about-title">من أنا</h2>
+    <p id="about-text">اسمي حسن حيدر، طالب في مجال الأمن السيبراني ومدرب معتمد، أعمل على تعزيز الوعي الأمني وتصميم المواقع الاحترافية.</p>
+  </section>
+
+  <section id="services">
+    <h2 class="section-title" id="services-title">خدماتي</h2>
+    <ul>
+      <li id="service-1">تدريب في الأمن السيبراني لجميع المستويات</li>
+      <li id="service-2">مكافحة الابتزاز الإلكتروني والمساعدة في استرجاع الحسابات</li>
+      <li id="service-3">تصميم مواقع احترافية بلغات متعددة</li>
+      <li id="service-4">استشارات في أمن المعلومات والتحليل الرقمي</li>
+    </ul>
+  </section>
+
+   <section id="languages">
+    <h2 class="section-title" id="languages-title">لغات البرمجة</h2>
+    <div class="languages-grid">
+      <div class="language-card">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+          alt="HTML"
+        />
+        <p>HTML</p>
+      </div>
+      <div class="language-card">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+          alt="CSS"
+        />
+        <p>CSS</p>
+      </div>
+      <div class="language-card">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+          alt="JavaScript"
+        />
+        <p>JavaScript</p>
+      </div>
+      <div class="language-card">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+          alt="TypeScript"
+        />
+        <p>TypeScript</p>
+      </div>
+      <div class="language-card">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+          alt="Python"
+        />
+        <p>Python</p>
+      </div>
+      <div class="language-card">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+          alt="PHP"
+        />
+        <p>PHP</p>
+      </div>
+      <div class="language-card">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+          alt="C++"
+        />
+        <p>C++</p>
+      </div>
+      <div class="language-card">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+          alt="Java"
+        />
+        <p>Java</p>
+      </div>
+      <div class="language-card">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg"
+          alt="Ruby"
+        />
+        <p>Ruby</p>
+      </div>
+      <div class="language-card">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg"
+          alt="Go"
+        />
+        <p>Go</p>
+      </div>
+      <div class="language-card">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg"
+          alt="Swift"
+        />
+        <p>Swift</p>
+      </div>
+      <div class="language-card">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
+          alt="Kotlin"
+        />
+        <p>Kotlin</p>
+      </div>
+      <div class="language-card">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg"
+          alt="Rust"
+        />
+        <p>Rust</p>
+      </div>
+    </div>
+      </section>
+<section id="tools">
+  <h2 class="section-title" id="tools-title">أدوات الأمن السيبراني</h2>
+  <div class="languages-grid">
+    <!-- Information Gathering -->
+    <div class="language-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="Nmap"/>
+      <p id="tool-nmap">Nmap</p>
+    </div>
+    <div class="language-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/4149/4149468.png" alt="Wireshark"/>
+      <p id="tool-wireshark">Wireshark</p>
+    </div>
+    <!-- Vulnerability & Web -->
+    <div class="language-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1063/1063915.png" alt="Nikto"/>
+      <p id="tool-nikto">Nikto</p>
+    </div>
+    <div class="language-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/591/591605.png" alt="Burp Suite"/>
+      <p id="tool-burp">Burp Suite</p>
+    </div>
+    <!-- Wireless -->
+    <div class="language-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/482/482689.png" alt="Aircrack-ng"/>
+      <p id="tool-aircrack">Aircrack‑ng</p>
+    </div>
+    <!-- Password Cracking -->
+    <div class="language-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2914/2914421.png" alt="John the Ripper"/>
+      <p id="tool-john">John the Ripper</p>
+    </div>
+    <div class="language-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3388/3388846.png" alt="Hydra"/>
+      <p id="tool-hydra">Hydra</p>
+    </div>
+    <!-- Exploitation & Frameworks -->
+    <div class="language-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Metasploit"/>
+      <p id="tool-metasploit">Metasploit</p>
+    </div>
+    <div class="language-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2773/2773122.png" alt="BeEF"/>
+      <p id="tool-beef">BeEF</p>
+    </div>
+    <!-- Social Engineering -->
+    <div class="language-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/4147/4147145.png" alt="SET"/>
+      <p id="tool-set">Social‑Engineer Toolkit (SET)</p>
+    </div>
+    <!-- Forensics -->
+    <div class="language-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/4643/4643431.png" alt="Autopsy"/>
+      <p id="tool-autopsy">Autopsy</p>
+    </div>
+    <div class="language-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2913/2913920.png" alt="Volatility"/>
+      <p id="tool-volatility">Volatility</p>
+    </div>
+  </div>
+</section>
+
+  <section id="contact">
+    <h2 class="section-title" id="contact-title">تواصل معي</h2>
+    <p id="contact-text">يمكنك التواصل معي عبر البريد الإلكتروني أو وسائل التواصل الاجتماعي التالية:</p>
+    <div class="social-icons">
+      <a href="https://facebook.com/0967262878ha" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://instagram.com/9w.8y" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/hasanhedar19" target="_blank" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://discord.gg/kZfztje3" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+    </div>
+  </section>
+
+  <footer id="footer-text">&copy; 2025 حسن حيدر. جميع الحقوق محفوظة.</footer>
+
+  <script>
+    const langToggleBtn = document.querySelector('.lang-toggle');
+    let currentLang = 'ar';
+
+    const translations = {
+      ar: {
+        langButton: 'English',
+        headerName: 'حسن حيدر',
+        headerDesc: 'طالب ومدرب أمن سيبراني | مكافح للابتزاز | مصمم مواقع محترف',
+        navAbout: 'من أنا',
+        navServices: 'خدماتي',
+        navLanguages: 'لغات البرمجة',
+        navTools: 'أدوات الأمن',
+        navContact: 'تواصل',
+        aboutTitle: 'من أنا',
+        aboutText: 'اسمي حسن حيدر، طالب في مجال الأمن السيبراني ومدرب معتمد، أعمل على تعزيز الوعي الأمني وتصميم المواقع الاحترافية.',
+        servicesTitle: 'خدماتي',
+        service1: 'تدريب في الأمن السيبراني لجميع المستويات',
+        service2: 'مكافحة الابتزاز الإلكتروني والمساعدة في استرجاع الحسابات',
+        service3: 'تصميم مواقع احترافية بلغات متعددة',
+        service4: 'استشارات في أمن المعلومات والتحليل الرقمي',
+        languagesTitle: 'لغات البرمجة',
+        toolsTitle: 'أدوات الأمن السيبراني',
+        contactTitle: 'تواصل معي',
+        contactText: 'يمكنك التواصل معي عبر البريد الإلكتروني أو وسائل التواصل الاجتماعي التالية:',
+        footerText: '© 2025 حسن حيدر. جميع الحقوق محفوظة.',
+      },
+      en: {
+        langButton: 'العربية',
+        headerName: 'Hasan Haider',
+        headerDesc: 'Cybersecurity Student & Trainer | Anti-Extortion Fighter | Professional Web Designer',
+        navAbout: 'About Me',
+        navServices: 'My Services',
+        navLanguages: 'Programming Languages',
+        navTools: 'Security Tools',
+        navContact: 'Contact',
+        aboutTitle: 'About Me',
+        aboutText: 'My name is Hasan Haider, a cybersecurity student and certified trainer, working to raise security awareness and design professional websites.',
+        servicesTitle: 'My Services',
+        service1: 'Cybersecurity training for all levels',
+        service2: 'Cyber extortion fighting and account recovery assistance',
+        service3: 'Professional website design in multiple languages',
+        service4: 'Information security consulting and digital analysis',
+        languagesTitle: 'Programming Languages',
+        toolsTitle: 'Cybersecurity Tools',
+        contactTitle: 'Contact Me',
+        contactText: 'You can reach me via email or the following social media:',
+        footerText: '© 2025 Hasan Haider. All rights reserved.',
+      }
+    };
+
+    function toggleLanguage() {
+      const t = translations[currentLang === 'ar' ? 'en' : 'ar'];
+
+      document.documentElement.lang = currentLang === 'ar' ? 'en' : 'ar';
+      document.documentElement.dir = currentLang === 'ar' ? 'ltr' : 'rtl';
+
+      langToggleBtn.textContent = t.langButton;
+      document.getElementById('header-name').textContent = t.headerName;
+      document.getElementById('header-desc').textContent = t.headerDesc;
+      document.getElementById('nav-about').innerHTML = `<i class="fas fa-user"></i> <span>${t.navAbout}</span>`;
+      document.getElementById('nav-services').innerHTML = `<i class="fas fa-briefcase"></i> <span>${t.navServices}</span>`;
+      document.getElementById('nav-languages').innerHTML = `<i class="fas fa-code"></i> <span>${t.navLanguages}</span>`;
+      document.getElementById('nav-tools').innerHTML = `<i class="fas fa-shield-alt"></i> <span>${t.navTools}</span>`;
+      document.getElementById('nav-contact').innerHTML = `<i class="fas fa-envelope"></i> <span>${t.navContact}</span>`;
+      document.getElementById('about-title').textContent = t.aboutTitle;
+      document.getElementById('about-text').textContent = t.aboutText;
+      document.getElementById('services-title').textContent = t.servicesTitle;
+      document.getElementById('service-1').textContent = t.service1;
+      document.getElementById('service-2').textContent = t.service2;
+      document.getElementById('service-3').textContent = t.service3;
+      document.getElementById('service-4').textContent = t.service4;
+      document.getElementById('languages-title').textContent = t.languagesTitle;
+      document.getElementById('tools-title').textContent = t.toolsTitle;
+      document.getElementById('contact-title').textContent = t.contactTitle;
+      document.getElementById('contact-text').textContent = t.contactText;
+      document.getElementById('footer-text').textContent = t.footerText;
+
+      currentLang = currentLang === 'ar' ? 'en' : 'ar';
+    }
+  </script>
+</body>
+</html>
